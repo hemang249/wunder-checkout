@@ -1,5 +1,5 @@
-import { Cart } from "./entities/Cart.entity";
-import { Product } from "./entities/Product.entity";
+import { Bill } from "./components/Bill/bill.component";
+import { Product } from "./components/Product/product.component";
 
 /**
  * The products are supplied as a simple array
@@ -37,15 +37,15 @@ const data = [
 
 
 function main () {
-  let cart = new Cart();
+  let bill = new Bill();
   
   // "Scan" the product in one by one as a cashier would do
   data.forEach(item => {
     let product = new Product(item.id, item.name, item.price);
-    cart.scanProduct(product);
+    bill.scanProduct(product);
   })
 
-  cart.display();
+  bill.display();
 }
 main();
 
