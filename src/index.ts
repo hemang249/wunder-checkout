@@ -1,6 +1,12 @@
 import { Cart } from "./entities/Cart.entity";
 import { Product } from "./entities/Product.entity";
 
+/**
+ * The products are supplied as a simple array
+ * This simulates a real shopping cart where products are just bunched together in a simple cart
+ * It also simulates a scenario wherein the Checkout System is a backend API
+ * and recieves the data as a JSON from the clientside
+ */
 const data = [
   {
     "id": "001",
@@ -31,14 +37,15 @@ const data = [
 
 
 function main () {
-  let products: Array<Product> = [];
-
+  let cart = new Cart();
+  
+  // "Scan" the product in one by one as a cashier would do
   data.forEach(item => {
-    products.push(new Product(item.id, item.name, item.price));
+    let product = new Product(item.id, item.name, item.price);
+    cart.scanProduct(product);
   })
 
-  let cart = new Cart(products);
-  cart.display()
+  cart.display();
 }
 main();
 

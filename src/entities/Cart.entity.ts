@@ -5,12 +5,16 @@ export class Cart {
   products: Array<Product>;
   total: number;
 
-  constructor(products: Array<Product>) {
-    this.products = products;
+  constructor() {
+    this.products = [];
+  }
+
+  public scanProduct(product: Product): void {
+    this.products.push(product);
     this.calculateTotal();
   }
 
-  calculateTotal(): void {
+  public calculateTotal(): void {
     let total = 0;
     this.products.forEach(item => {
       total += item.price
