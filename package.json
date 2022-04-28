@@ -1,0 +1,34 @@
+{
+  "name": "wunder-checkout",
+  "version": "0.0.1",
+  "description": "A checkout system to add products, apply promotional offers and print the final bill",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hemang249/wunder-checkout.git"
+  },
+  "keywords": [
+    "Typescript",
+    "Checkout",
+    "Awesome"
+  ],
+  "author": "Hemang Bhogayata",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/hemang249/wunder-checkout/issues"
+  },
+  "homepage": "https://github.com/hemang249/wunder-checkout#readme",
+  "dependencies": {
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.14.0"
+  }
+}
