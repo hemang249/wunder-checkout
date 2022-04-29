@@ -36,8 +36,8 @@ const data = [
 
 function main () {
   const tenPercentDiscount = new FlatDiscount(10, 30)
-  const curryDiscount = new ItemQuantityBasedDiscount("002", 2, 3.99)
-  let bill = new Bill([tenPercentDiscount, curryDiscount]);
+  const pizzaDiscount = new ItemQuantityBasedDiscount("002", 2, 3.99)
+  let bill = new Bill([tenPercentDiscount, pizzaDiscount]);
   
   // "Scan" the product in one by one as a cashier would do
   data.forEach(item => {
