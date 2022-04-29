@@ -1,5 +1,6 @@
 import { Bill } from "./components/Bill/bill.component";
 import { Product } from "./components/Product/product.component";
+import { FlatDiscount } from "./components/Promos/FlatDiscount/flat-discount.component";
 
 /**
  * The products are supplied as a simple array
@@ -37,7 +38,8 @@ const data = [
 
 
 function main () {
-  let bill = new Bill();
+  const thirtyPercentOffDiscount = new FlatDiscount(10, 30)
+  let bill = new Bill([thirtyPercentOffDiscount]);
   
   // "Scan" the product in one by one as a cashier would do
   data.forEach(item => {
@@ -45,7 +47,7 @@ function main () {
     bill.scanProduct(product);
   })
 
-  bill.display();
+  bill.checkout();
 }
 main();
 
