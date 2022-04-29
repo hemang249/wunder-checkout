@@ -1,6 +1,7 @@
 import { Bill } from "./components/Bill/bill.component";
 import { Product } from "./components/Product/product.component";
 import { FlatDiscount } from "./components/Promos/FlatDiscount/flat-discount.component";
+import { ItemQuantityBasedDiscount } from "./components/Promos/ItemDiscount/item-quantity-based-discount.component";
 
 /**
  * The products are supplied as a simple array
@@ -15,9 +16,9 @@ const data = [
     "price": 1.95
   },
   {
-    "id": "001",
-    "name": "Curry Sauce",
-    "price": 1.95
+    "id": "002",
+    "name": "Pizza",
+    "price": 5.99
   },
   {
     "id": "002",
@@ -29,17 +30,14 @@ const data = [
     "name": "Men's T-shirt",
     "price": 25.00
   },
-  {
-    "id": "004",
-    "name": "Bread Loaf",
-    "price": 3.99
-  }
+ 
 ];
 
 
 function main () {
-  const thirtyPercentOffDiscount = new FlatDiscount(10, 30)
-  let bill = new Bill([thirtyPercentOffDiscount]);
+  const tenPercentDiscount = new FlatDiscount(10, 30)
+  const curryDiscount = new ItemQuantityBasedDiscount("002", 2, 3.99)
+  let bill = new Bill([tenPercentDiscount, curryDiscount]);
   
   // "Scan" the product in one by one as a cashier would do
   data.forEach(item => {
