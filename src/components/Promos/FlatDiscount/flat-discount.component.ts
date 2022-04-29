@@ -2,16 +2,16 @@ import { IPromo } from "../../../abstract/IPromo.abstract";
 import { Bill } from "../../Bill/bill.component";
 
 export class FlatDiscount implements IPromo {
-  discountPercent: number;
-  totalShouldBeMoreThan: number;
+  private readonly discountPercent: number;
+  private readonly subTotalShouldBeMoreThan: number;
 
-  constructor(discountPercent: number, totalShouldBeMoreThan: number) {
+  constructor(discountPercent: number, subTotalShouldBeMoreThan: number) {
     this.discountPercent = discountPercent;
-    this.totalShouldBeMoreThan = totalShouldBeMoreThan;
+    this.subTotalShouldBeMoreThan = subTotalShouldBeMoreThan;
   }
 
   isApplicable(currentBill: Bill): Boolean {
-    return currentBill.subTotal >= this.totalShouldBeMoreThan;
+    return currentBill.subTotal >= this.subTotalShouldBeMoreThan;
   }
 
   activate(currentBill: Bill): Bill {
