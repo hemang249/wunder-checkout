@@ -23,18 +23,18 @@ export class ItemQuantityBasedDiscount implements IPromo {
   }
 
   isApplicable(currentBill: Bill): Boolean {
+    // applicable if a certain number of the target product are scanned
     this.filterProductsMatchingTheTargetId(currentBill);
     const count = this.matchingProducts.length;
     return count >= this.countGreaterThan;
   }
 
-  activate(currentBill: Bill): Bill {
-    if (!this.isApplicable(currentBill)) return currentBill;
+  activate(currentBill: Bill) {
+    if (!this.isApplicable(currentBill)) return;
 
+    // if applicable, set the price of target products to the new amount
     this.matchingProducts.forEach(product => {
       product.adjustedPrice = this.newPrice;
     });
-
-    return currentBill;
   }
 }

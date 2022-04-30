@@ -14,5 +14,5 @@ export abstract class IPromo {
    * @param currentBill : Bill
    * @returns Bill
    */
-  abstract activate(currentBill: Bill ): Bill;
+  abstract activate(currentBill: Bill ): void;
 }

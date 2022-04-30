@@ -11,12 +11,14 @@ export class FlatDiscount implements IPromo {
   }
 
   isApplicable(currentBill: Bill): Boolean {
+    // flat discount is applicable if the sub total is more than a certain amount
     return currentBill.subTotal >= this.subTotalShouldBeMoreThan;
   }
 
-  activate(currentBill: Bill): Bill {
-    if(!this.isApplicable(currentBill)) return currentBill;
+  activate(currentBill: Bill): void {
+    if(!this.isApplicable(currentBill)) return;
+
+    // if applicable, then discount the price by the specified amount
     currentBill.totalDiscount += (currentBill.subTotal * this.discountPercent/100)
-    return currentBill;
   }
 }

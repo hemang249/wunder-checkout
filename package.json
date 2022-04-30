@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,14 +23,18 @@
   },
   "homepage": "https://github.com/hemang249/wunder-checkout#readme",
   "dependencies": {
-    "@types/table": "^6.3.2",
-    "table": "^6.8.0",
-    "ts-node-dev": "^1.1.8",
-    "typescript": "^4.6.3"
+    "table": "^6.8.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/table": "^6.3.2",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
-    "eslint": "^8.14.0"
+    "eslint": "^8.14.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
   }
 }
