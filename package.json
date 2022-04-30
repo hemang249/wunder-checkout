@@ -6,10 +6,10 @@
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "dev": "ts-node-dev src/index.ts",
-    "test": "jest --silent",
+    "test": "jest --silent --verbose",
     "test:watch": "jest --watch --silent",
+    "test:coverage": "jest --coverage",
     "build": "tsc --build"
-
   },
   "repository": {
     "type": "git",
