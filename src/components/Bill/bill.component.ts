@@ -16,6 +16,7 @@ export class Bill {
     this.subTotal = 0;
     this.totalDiscount = 0;
     this.total = 0;
+    // sort the promos as ItemDiscounts must be applied before flat discounts
     this.sortPromos(promos);
   }
 
@@ -33,7 +34,7 @@ export class Bill {
    * @returns void
    */
   public calculateSubtotal(): void {
-    let subTotal = 0;
+    let subTotal: number = 0;
     this.products.forEach(item => {
       // if price has been adjusted due to a promo, then use that to calculate the sub total
       subTotal +=  item.adjustedPrice ?? item.price;

@@ -2,6 +2,7 @@ import { Bill } from "./components/Bill/bill.component";
 import { Product } from "./components/Product/product.component";
 import { FlatDiscount } from "./components/Promos/FlatDiscount/flat-discount.component";
 import { ItemQuantityBasedDiscount } from "./components/Promos/ItemDiscount/item-quantity-based-discount.component";
+import { ICartItem } from "./interfaces/ICartItem.interface";
 
 /**
  * The products are supplied as a simple array
@@ -9,7 +10,7 @@ import { ItemQuantityBasedDiscount } from "./components/Promos/ItemDiscount/item
  * It also simulates a scenario wherein the Checkout System is a backend API
  * and recieves the data as a JSON from the clientside
  */
-const data = [
+ const cart: Array<ICartItem> = [
   {
     "id": "001",
     "name": "Curry Sauce",
@@ -30,17 +31,16 @@ const data = [
     "name": "Men's T-shirt",
     "price": 25.00
   },
- 
 ];
 
 
 function main () {
   const tenPercentDiscount = new FlatDiscount(10, 30)
   const pizzaDiscount = new ItemQuantityBasedDiscount("002", 2, 3.99)
-  let bill = new Bill([tenPercentDiscount, pizzaDiscount]);
+  const bill = new Bill([tenPercentDiscount, pizzaDiscount]);
   
   // "Scan" the product in one by one as a cashier would do
-  data.forEach(item => {
+  cart.forEach(item => {
     let product = new Product(item.id, item.name, item.price);
     bill.scanProduct(product);
   })
@@ -48,4 +48,3 @@ function main () {
   bill.checkout();
 }
 main();
-
