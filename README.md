@@ -9,28 +9,28 @@ campaigns to give discounts. The system needs to be flexible regarding the promo
 Node JS LTS
 
 ## Instructions
-```
+```shell
 # install dependencies
 npm i
 ```
 
-```
+```shell
 # start the development version
 npm run dev
 ```
 
-```
+```shell
 # build and run the build
 npm start
 ```
 
-```
+```shell
 # run unit and integration tests
 npm run test
 ```
 
 ## Example
-```
+```js
   const tenPercentDiscount = new FlatDiscount(10, 30)
   const pizzaDiscount = new ItemQuantityBasedDiscount("002", 2, 3.99)
   const bill = new Bill([tenPercentDiscount, pizzaDiscount]);
@@ -53,14 +53,14 @@ The solution is split up into 'components' where the a component represents a pa
 
 - ### Product
 Everything in the solution revolves around a product.
-```
+```js
 // Create new product
 const product = new Product('001', 'Curry Sauce', 2.95)
 ```
 
 - ### FlatDiscount
 The FlatDiscount represents promos of type **'x% discount whenever user spends more than €y'**
-```
+```js
 // Create new flat discount
 // get 10% off when you spend more than 30
 const flatDiscount = new FlatDiscount(10,30)
@@ -68,7 +68,7 @@ const flatDiscount = new FlatDiscount(10,30)
 
 - ### ItemQuantityBasedDiscount
 The ItemQuantityBasedDiscount represents promos of type **'when user buys x quantity of y product then those cost €z'**
-```
+```js
 // Create new item quantity based discount
 // when you buy more than 3 pizza, cost reduces to 3.99 for each
 const itemQuantityBasedDiscount = new ItemQuantityBasedDiscount('002', 3, 3.99)
@@ -76,7 +76,7 @@ const itemQuantityBasedDiscount = new ItemQuantityBasedDiscount('002', 3, 3.99)
 
 - ### Bill
 Bill represents well, the bill of the order. Products can be scanned into the bill. Whenever, checkout method is called, the Promos are applied and totals are calculated.
-```
+```js
   const tenPercentDiscount = new FlatDiscount(10, 30)
   const pizzaDiscount = new ItemQuantityBasedDiscount("002", 2, 3.99)
   const bill = new Bill([tenPercentDiscount, pizzaDiscount]);
@@ -95,7 +95,7 @@ Bill represents well, the bill of the order. Products can be scanned into the bi
 ## Tests
 The project is tested using jest for both Unit and E2E Tests
 
-```
+```shell
 npm run test
 ```
 
