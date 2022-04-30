@@ -30,7 +30,6 @@ import { ICartItem } from "./interfaces/ICartItem.interface";
  
 ];
 
-
 function main () {
   const tenPercentDiscount = new FlatDiscount(10, 30)
   const pizzaDiscount = new ItemQuantityBasedDiscount("002", 2, 3.99)
