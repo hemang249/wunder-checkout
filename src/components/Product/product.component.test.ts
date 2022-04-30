@@ -11,14 +11,21 @@ describe('Product Component Test', () => {
     productComponent = new Product(id, name, price);
   });
 
+
   it('should be defined', () => {
     expect(productComponent).toBeDefined();
   });
 
   it('should have the appropriate members', () => {
     expect(productComponent.adjustedPrice).toBeUndefined();
+
     expect(productComponent.id).toBeDefined();
+    expect(productComponent.id).toEqual(id);
+
     expect(productComponent.name).toBeDefined();
+    expect(productComponent.name).toEqual(name);
+
     expect(productComponent.price).toBeDefined();
+    expect(productComponent.price).toEqual(price);
   })
 })

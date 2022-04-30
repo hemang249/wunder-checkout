@@ -32,7 +32,7 @@ export class ItemQuantityBasedDiscount implements IPromo {
   activate(currentBill: Bill) {
     if (!this.isApplicable(currentBill)) return;
 
-    // if applicable, set the price of target products to the new amount
+    // if applicable, set the price of target products to the set amount
     this.matchingProducts.forEach(product => {
       product.adjustedPrice = this.newPrice;
     });
