@@ -12,25 +12,22 @@ import { ICartItem } from "./interfaces/ICartItem.interface";
  */
  const cart: Array<ICartItem> = [
   {
+    "id": "002",
+    "name": "Pizza",
+    "price": 5.99
+  },
+  {
     "id": "001",
     "name": "Curry Sauce",
     "price": 1.95
   },
+  
   {
     "id": "002",
     "name": "Pizza",
     "price": 5.99
   },
-  {
-    "id": "002",
-    "name": "Pizza",
-    "price": 5.99
-  },
-  {
-    "id": "003",
-    "name": "Men's T-shirt",
-    "price": 25.00
-  },
+ 
 ];
 
 

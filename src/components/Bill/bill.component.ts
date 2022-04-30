@@ -33,36 +33,39 @@ export class Bill {
    * @description Calculates the Sub Total
    * @returns void
    */
-  public calculateSubtotal(): void {
+  public calculateSubtotal(): number {
     let subTotal: number = 0;
     this.products.forEach(item => {
       // if price has been adjusted due to a promo, then use that to calculate the sub total
       subTotal +=  item.adjustedPrice ?? item.price;
     })
     this.subTotal = subTotal;
+    return this.subTotal;
   };
 
   /**
    * @description Checks out by applying promo rules and then prints the bill
    * @returns void
    */
-  public checkout(): void {
+  public checkout(): number {
     this.calculateSubtotal();
 
     this.promos.forEach(promo => {
       promo.activate(this);
       this.calculateSubtotal();
     })
-
-    this.total = this.subTotal - this.totalDiscount;
+    let total = this.subTotal - this.totalDiscount;
+    // round to two decimal places
+    this.total = Math.round(total * 100) / 100
     this.display();
+    return this.total;
   }
 
   /**
    * @description Prints the bill as a table
    * @returns void
    */
-  public display(): void {
+  private display(): void {
     const tableData: Array<Array<any>> = [['Sr No.', 'Product ID', 'Name', 'Price (€)']];
 
     this.products.forEach((item, idx) => {
@@ -86,7 +89,7 @@ export class Bill {
    * @param promos: Array<IPromo>
    * @returns void
    */
-  sortPromos(promos: Array<IPromo>): void {
+  private sortPromos(promos: Array<IPromo>): void {
     this.promos = promos.sort((a: IPromo, b: IPromo) => {
       if(a instanceof FlatDiscount && b instanceof ItemQuantityBasedDiscount)
         return 1;
