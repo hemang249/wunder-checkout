@@ -47,6 +47,15 @@ describe('E2E Test', () => {
     expect(total).toEqual(29.65)
   })
 
+  it('Test Case 2: With 002, 001, 002', () => {
+    bill.scanProduct(p002)
+    bill.scanProduct(p001)
+    bill.scanProduct(p002)
+
+    const total = bill.checkout();
+    expect(total).toEqual(9.93)
+  })
+
   it('Test Case 3: With 002, 001, 002, 003', () => {
     bill.scanProduct(p002)
     bill.scanProduct(p001)

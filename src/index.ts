@@ -27,6 +27,12 @@ import { ICartItem } from "./interfaces/ICartItem.interface";
     "name": "Pizza",
     "price": 5.99
   },
+
+  {
+    "id": "003",
+    "name": "Men's T-shirt",
+    "price": 25
+  },
  
 ];
 
